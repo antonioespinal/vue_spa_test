@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+
+	<title>Vue SPA test</title>
+
+	<!-- polyfill & babel -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+	<!-- Vue / Vue Router / Vue Loader -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://unpkg.com/http-vue-loader"></script>
+
+	<style>
+		#app li{ cursor:pointer; color:blue; }
+		h3{ background:#000; color:#fff; }
+	</style>
+</head>
+
+<body>
+
+	<div id="app">
+		<h3>リンク</h3>
+		<p>URLのパスは変化するが、ページ遷移はせず、コンテンツが書き換わっている</p>
+		<ul>
+			<router-link tag="li" to="/index.html">index.html</router-link>
+			<router-link tag="li" to="/detail.html">detail.html</router-link>
+		</ul>
+
+		<h5>引数付き遷移</h5>
+		<ul>
+			<router-link tag="li" to="/index.html?job=refile&si1=111&si2=222">index.html?job=refile&si1=111&si2=222</router-link>
+			<router-link tag="li" to="/detail.html?no=110">detail.html?no=110</router-link>
+		</ul>
+
+		<h3>コンテンツ</h3>
+		<router-view></router-view>
+	</div>
+
+	<script type="text/babel" src="./main.js" data-presets="es2015,stage-2"></script>
+</body>
+
+
+</html>
